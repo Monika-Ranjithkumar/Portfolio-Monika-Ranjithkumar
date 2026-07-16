@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Monika B R - Professional Software Developer and AI & Data Science Student Portfolio website. Explore my projects, skills, and work experience.">
+  <meta name="author" content="Monika B R">
+  <title>Monika B R | Software Developer & AI & DS Student</title>
+  
+  <!-- Dynamic SVG Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><defs><linearGradient id=%22g%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%22100%25%22><stop offset=%220%25%22 stop-color=%22%236366F1%22/><stop offset=%22100%25%22 stop-color=%22%2306B6D4%22/></linearGradient></defs><rect width=%22100%22 height=%22100%22 rx=%2230%22 fill=%22url(%23g)%22/><text y=%2272%22 x=%2250%22 text-anchor=%22middle%22 font-family=%22system-ui, -apple-system, sans-serif%22 font-size=%2268%22 font-weight=%22bold%22 fill=%22%23ffffff%22>M</text></svg>">
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- CDNs -->
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- AOS Animation CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ==========================================
+       PRELOADER SCREEN
+       ========================================== -->
+  <div id="preloader" class="preloader" role="dialog" aria-label="Loading portfolio">
+    <div class="preloader-logo-container">
+      <div class="preloader-spinner"></div>
+      <div class="preloader-spinner-inner"></div>
+      <span class="preloader-logo">M</span>
+    </div>
+    <div id="preloaderPercent" class="preloader-counter">0%</div>
+  </div>
+
+  <!-- ==========================================
+       SCROLL PROGRESS BAR
+       ========================================== -->
+  <div class="scroll-progress-container">
+    <div id="scrollProgressBar" class="scroll-progress-bar"></div>
+  </div>
+
+
+
+  <!-- ==========================================
+       STICKY NAVBAR
+       ========================================== -->
+  <header>
+    <nav class="navbar navbar-expand-lg fixed-top" aria-label="Main Navigation">
+      <div class="container">
+        <a class="navbar-brand font-weight-bold" href="#hero">M</a>
+        
+        <div class="d-flex align-items-center order-lg-3">
+          <!-- Light/Dark Mode Switcher -->
+          <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Light/Dark Theme">
+            <i class="fas fa-sun"></i>
+          </button>
+
+          <!-- Hamburger Menu toggler -->
+          <button class="navbar-toggler collapsed ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+        <div class="collapse navbar-collapse justify-content-end order-lg-2" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" href="#hero">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#skills">Skills</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#experience">Experience</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#achievements">Achievements</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#education">Education</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ==========================================
+         HERO SECTION
+         ========================================== -->
+    <section id="hero">
+      <!-- Three.js Canvas Background -->
+      <canvas id="heroCanvas" class="hero-bg-canvas"></canvas>
+      
+      <!-- Particles Overlay Background -->
+      <div id="particles-js" class="hero-particles"></div>
+
+      <div class="container hero-content">
+        <div class="row align-items-center min-vh-100 py-5">
+          <div class="col-lg-7" data-aos="fade-right">
+            <h5 class="hero-greeting">Hello 👋 I'm</h5>
+            <h1 class="hero-name"><span>MONIKA B R</span></h1>
+            
+            <!-- Typed effect container -->
+            <div class="hero-typed">
+              <span id="typed"></span>
+            </div>
+
+            <!-- Hero CTA Buttons -->
+            <div class="hero-buttons">
+              <a href="#projects" class="btn btn-premium btn-premium-primary">View Projects</a>
+              <a href="resume/monika_resume.pdf" download="Monika_BR_Resume.pdf" class="btn btn-premium btn-premium-secondary">
+                <i class="fas fa-download me-2"></i>Download Resume
+              </a>
+            </div>
+
+            <!-- Social Links -->
+            <div class="hero-socials">
+              <a href="https://github.com/Monika-Ranjithkumar" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub Profile">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://linkedin.com/in/Monika-Ranjithkumar" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn Profile">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="https://leetcode.com/Monika_Ranjithkumar" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LeetCode Profile">
+                <i class="fas fa-code"></i>
+              </a>
+              <a href="mailto:monikathangamani2006@gmail.com" class="social-icon" aria-label="Email Address">
+                <i class="fas fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Hero Right Column - Glowing Avatar saying Hi -->
+          <div class="col-lg-5 text-center mt-5 mt-lg-0" data-aos="fade-left">
+            <div class="hero-avatar-container">
+              <!-- Speech bubble -->
+              <div class="hero-avatar-bubble float-animation">
+                Hi! <span class="waving-hand">👋</span>
+              </div>
+              <!-- Avatar image -->
+              <div class="hero-avatar-wrapper">
+                <img src="images/profile.png" alt="Monika B R Avatar" class="hero-avatar-img">
+              </div>
+              <div class="hero-avatar-glow"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mouse Scroll Indicator -->
+      <a href="#about" class="hero-scroll-indicator" aria-label="Scroll to About Section">
+        <div class="scroll-mouse">
+          <div class="scroll-wheel"></div>
+        </div>
+        <span>Scroll Down</span>
+      </a>
+    </section>
+
+    <!-- ==========================================
+         ABOUT SECTION
+         ========================================== -->
+    <section id="about">
+      <div class="container">
+        <div class="section-title-wrapper" data-aos="fade-up">
+          <span class="section-subtitle">Discover</span>
+          <h2 class="section-title">About <span>Me</span></h2>
+          <div class="section-title-line"></div>
+        </div>
+
+        <div class="row align-items-center">
+          <div class="col-lg-5 text-center mb-5 mb-lg-0" data-aos="fade-right">
+            <!-- Circular profile image with glowing effect -->
+            <div class="about-image-container">
+              <div class="about-image-wrapper">
+                <img src="images/profile.png" alt="Monika B R Profile" class="about-img">
+              </div>
+              <div class="about-glow-ring"></div>
+            </div>
+          </div>
+          
+          <div class="col-lg-7" data-aos="fade-left">
+            <div class="glass-card shimmer-bg">
+              <h3 class="mb-3 font-weight-bold">Hi, I'm Monika</h3>
+              <p class="text-secondary mb-4">
+                Artificial Intelligence and Data Science undergraduate with strong skills in Java, SQL, Full Stack, and Database Management Systems. Passionate about Java development, problem solving, and algorithmic thinking with hands-on experience in Object-Oriented Programming, Data Structures, and Algorithms. Experienced in data science and analytics internships involving web applications, data preprocessing, and dashboard creation. Eager to contribute technical expertise and grow in a software development role.
+              </p>
+
+              <!-- Counters Grid -->
+              <div class="row g-3 mb-4">
+                <div class="col-6 col-sm-3">
+                  <div class="glass-card stat-card tilt-card">
+                    <span class="stat-number" data-count="3">0</span>
+                    <span class="stat-label">Projects Done</span>
+                  </div>
+                </div>
+                <div class="col-6 col-sm-3">
+                  <div class="glass-card stat-card tilt-card">
+                    <span class="stat-number" data-count="450">0</span>
+                    <span class="stat-label">Coding Solved</span>
+                  </div>
+                </div>
+                <div class="col-6 col-sm-3">
+                  <div class="glass-card stat-card tilt-card">
+                    <span class="stat-number" data-count="2">0</span>
+                    <span class="stat-label">Internships</span>
+                  </div>
+                </div>
+                <div class="col-6 col-sm-3">
+                  <div class="glass-card stat-card tilt-card">
+                    <span class="stat-number" data-count="8.7">0</span>
+                    <span class="stat-label">CGPA</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mini Timeline -->
+              <h4 class="mb-3 font-weight-bold">My Career Journey</h4>
+              <div class="about-timeline">
+                <div class="about-timeline-item">
+                  <div class="about-timeline-date">2023 - Present</div>
+                  <div class="about-timeline-title">B.Tech in AI & DS, Nandha Engineering College</div>
+                  <div class="about-timeline-desc">Pursuing degree with focus on object-oriented systems, data science modeling, algorithms, and DBMS.</div>
+                </div>
+                <div class="about-timeline-item">
+                  <div class="about-timeline-date">12/2025 - 01/2026</div>
+                  <div class="about-timeline-title">Data Analytics Intern, CUBEAI SOLUTIONS</div>
+                  <div class="about-timeline-desc">Performed data cleaning, structuring, Power BI reporting, and exploratory analytics in Tiruchengode.</div>
+                </div>
+                <div class="about-timeline-item">
+                  <div class="about-timeline-date">06/2025 - 07/2025</div>
+                  <div class="about-timeline-title">Data Science Intern, MIST SOFTWARE SOLUTIONS</div>
+                  <div class="about-timeline-desc">Designed web app backends, worked with MySQL databases, and optimized application performance in Coimbatore.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SKILLS SECTION
+         ========================================== -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-title-wrapper" data-aos="fade-up">
+          <span class="section-subtitle">Expertise</span>
+          <h2 class="section-title">My <span>Skills</span></h2>
+          <div class="section-title-line"></div>
+        </div>
+
+        <!-- Grouped Skills Layout Grid -->
+        <div class="row g-4 justify-content-center" data-aos="fade-up">
+          
+          <!-- Programming Languages -->
+          <div class="col-md-6 col-lg-4">
+            <div class="glass-card h-100 tilt-card">
+              <h4 class="mb-3 font-weight-bold" style="color: var(--accent);"><i class="fas fa-code me-2"></i>Programming</h4>
+              <div class="d-flex flex-wrap">
+                <span class="skills-category-badge"><i class="fab fa-java"></i> Java</span>
+                <span class="skills-category-badge"><i class="fab fa-js-square"></i> JavaScript</span>
+                <span class="skills-category-badge"><i class="fas fa-database"></i> SQL</span>
+                <span class="skills-category-badge"><i class="fab fa-html5"></i> HTML</span>
+                <span class="skills-category-badge"><i class="fab fa-css3-alt"></i> CSS</span>
+                <span class="skills-category-badge"><i class="fas fa-layer-group"></i> MERN Stack</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Databases -->
+          <div class="col-md-6 col-lg-4">
+            <div class="glass-card h-100 tilt-card">
+              <h4 class="mb-3 font-weight-bold" style="color: var(--accent);"><i class="fas fa-server me-2"></i>Databases</h4>
+              <div class="d-flex flex-wrap">
+                <span class="skills-category-badge"><i class="fas fa-database"></i> MySQL</span>
+                <span class="skills-category-badge"><i class="fas fa-leaf"></i> MongoDB</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Data & Analytics -->
+          <div class="col-md-6 col-lg-4">
+            <div class="glass-card h-100 tilt-card">
+              <h4 class="mb-3 font-weight-bold" style="color: var(--accent);"><i class="fas fa-chart-bar me-2"></i>Data Analytics</h4>
+              <div class="d-flex flex-wrap">
+                <span class="skills-category-badge"><i class="fas fa-chart-line"></i> Power BI</span>
+                <span class="skills-category-badge"><i class="fas fa-table"></i> Tableau</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Developer Tools -->
+          <div class="col-md-6 col-lg-4">
+            <div class="glass-card h-100 tilt-card">
+              <h4 class="mb-3 font-weight-bold" style="color: var(--accent);"><i class="fas fa-tools me-2"></i>Developer Tools</h4>
+              <div class="d-flex flex-wrap">
+                <span class="skills-category-badge"><i class="fab fa-github"></i> GitHub</span>
+                <span class="skills-category-badge"><i class="fas fa-laptop-code"></i> VS Code</span>
+                <span class="skills-category-badge"><i class="far fa-file-excel"></i> MS Excel</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- CS Fundamentals -->
+          <div class="col-md-6 col-lg-4">
+            <div class="glass-card h-100 tilt-card">
+              <h4 class="mb-3 font-weight-bold" style="color: var(--accent);"><i class="fas fa-brain me-2"></i>CS Fundamentals</h4>
+              <div class="d-flex flex-wrap">
+                <span class="skills-category-badge"><i class="fas fa-project-diagram"></i> Data Structures</span>
+                <span class="skills-category-badge"><i class="fas fa-cogs"></i> Algorithms</span>
+                <span class="skills-category-badge"><i class="fas fa-cube"></i> OOPS</span>
+                <span class="skills-category-badge"><i class="fas fa-database"></i> DBMS</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Soft Skills & Languages -->
+          <div class="col-md-6 col-lg-4">
+            <div class="glass-card h-100 tilt-card">
+              <h4 class="mb-3 font-weight-bold" style="color: var(--accent);"><i class="fas fa-user-friends me-2"></i>Professional Skills</h4>
+              <div class="d-flex flex-wrap">
+                <span class="skills-category-badge"><i class="far fa-keyboard"></i> Typewriting</span>
+                <span class="skills-category-badge"><i class="far fa-comments"></i> Communication</span>
+                <span class="skills-category-badge"><i class="fas fa-users"></i> Teamwork</span>
+                <span class="skills-category-badge"><i class="fas fa-lightbulb"></i> Problem Solving</span>
+                <span class="skills-category-badge"><i class="fas fa-globe"></i> Tamil (Native)</span>
+                <span class="skills-category-badge"><i class="fas fa-language"></i> English</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         EXPERIENCE SECTION
+         ========================================== -->
+    <section id="experience">
+      <div class="container">
+        <div class="section-title-wrapper" data-aos="fade-up">
+          <span class="section-subtitle">Work History</span>
+          <h2 class="section-title">My <span>Experience</span></h2>
+          <div class="section-title-line"></div>
+        </div>
+
+        <div class="timeline-container">
+          
+          <!-- Experience Item 1 -->
+          <div class="timeline-row" data-aos="fade-up">
+            <div class="timeline-node"></div>
+            <div class="timeline-content-wrapper">
+              <div class="glass-card timeline-card glow-on-hover tilt-card">
+                <span class="timeline-date">12/2025 – 01/2026</span>
+                <h3 class="timeline-title">Data Analytics Intern</h3>
+                <div class="timeline-company">
+                  <div class="timeline-company-logo">DA</div>
+                  <span>CUBEAI SOLUTIONS | Tiruchengode</span>
+                </div>
+                <ul class="timeline-desc-list">
+                  <li>Performed data cleaning, preprocessing, and exploratory data analysis on structured datasets.</li>
+                  <li>Developed interactive dashboards and reports using Power BI for business insights and visualization.</li>
+                  <li>Applied data transformation techniques and generated analytical reports for decision-making support.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience Item 2 -->
+          <div class="timeline-row" data-aos="fade-up">
+            <div class="timeline-node"></div>
+            <div class="timeline-content-wrapper">
+              <div class="glass-card timeline-card glow-on-hover tilt-card">
+                <span class="timeline-date">06/2025 – 07/2025</span>
+                <h3 class="timeline-title">Data Science Intern</h3>
+                <div class="timeline-company">
+                  <div class="timeline-company-logo">DS</div>
+                  <span>MIST SOFTWARE SOLUTIONS Pvt Ltd. | Coimbatore</span>
+                </div>
+                <ul class="timeline-desc-list">
+                  <li>Developed and tested web applications supporting backend functionality and database integration.</li>
+                  <li>Worked with MySQL databases for efficient data storage, retrieval, and management.</li>
+                  <li>Assisted in application workflow design, debugging, and performance optimization.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         PROJECTS SECTION
+         ========================================== -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-title-wrapper" data-aos="fade-up">
+          <span class="section-subtitle">My Work</span>
+          <h2 class="section-title">Featured <span>Projects</span></h2>
+          <div class="section-title-line"></div>
+        </div>
+
+        <!-- Project Filtering category buttons -->
+        <div class="project-filter-container" data-aos="fade-up">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="web">Web Development</button>
+          <button class="filter-btn" data-filter="analytics">Data Analytics</button>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+          
+          <!-- Project 1 -->
+          <div class="col-md-6 col-lg-4 project-col" data-category="web" data-aos="fade-up">
+            <div class="glass-card project-card tilt-card glow-on-hover">
+              <div class="project-img-wrapper">
+                <img src="images/project_campus.png" alt="Campus Service Hub" class="project-img">
+                <div class="project-overlay">
+                  <button class="project-zoom-btn" data-bs-toggle="modal" data-bs-target="#projectModal" aria-label="Quick View Project Detail">
+                    <i class="fas fa-search-plus"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="project-body">
+                <div class="project-tags">
+                  <span class="badge-tag">MERN Stack</span>
+                  <span class="badge-tag">Socket.IO</span>
+                  <span class="badge-tag">JWT</span>
+                </div>
+                <h3 class="project-title">Campus Service Hub</h3>
+                <p class="project-desc">A full-stack peer-to-peer MERN platform designed to facilitate campus collaboration and interactive skill exchange among students.</p>
+                <ul class="project-features d-none">
+                  <li>Developed a full-stack MERN platform for campus collaboration and skill exchange.</li>
+                  <li>Implemented JWT authentication and real-time communication using Socket.IO.</li>
+                  <li>Built modules for chat, project collaboration, and resource sharing.</li>
+                </ul>
+                <div class="project-links">
+                  <a href="https://github.com/Monika-Ranjithkumar" target="_blank" rel="noopener noreferrer" class="btn btn-premium btn-premium-secondary project-link-btn" aria-label="GitHub Repository Link">
+                    <i class="fab fa-github"></i> GitHub
+                  </a>
+                  <a href="https://campushub-bice.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-premium btn-premium-primary project-link-btn" aria-label="Live Demo Link">
+                    <i class="fas fa-external-link-alt"></i> Live Demo
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="col-md-6 col-lg-4 project-col" data-category="web" data-aos="fade-up">
+            <div class="glass-card project-card tilt-card glow-on-hover">
+              <div class="project-img-wrapper">
+                <img src="images/project_spicekart.png" alt="SpiceKart Masala Shop" class="project-img">
+                <div class="project-overlay">
+                  <button class="project-zoom-btn" data-bs-toggle="modal" data-bs-target="#projectModal" aria-label="Quick View Project Detail">
+                    <i class="fas fa-search-plus"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="project-body">
+                <div class="project-tags">
+                  <span class="badge-tag">React.js</span>
+                  <span class="badge-tag">Node.js</span>
+                  <span class="badge-tag">MongoDB</span>
+                </div>
+                <h3 class="project-title">SpiceKart</h3>
+                <p class="project-desc">A full-stack masala and spices e-commerce web platform integrating structured customer purchasing modules and admin catalogs.</p>
+                <ul class="project-features d-none">
+                  <li>Developed a full-stack e-commerce platform with customer and admin modules.</li>
+                  <li>Implemented product catalog management, order processing, and authentication systems.</li>
+                  <li>Optimized database operations for efficient inventory handling.</li>
+                </ul>
+                <div class="project-links">
+                  <a href="https://github.com/Monika-Ranjithkumar" target="_blank" rel="noopener noreferrer" class="btn btn-premium btn-premium-secondary project-link-btn" aria-label="GitHub Repository Link">
+                    <i class="fab fa-github"></i> GitHub
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="col-md-6 col-lg-4 project-col" data-category="analytics" data-aos="fade-up">
+            <div class="glass-card project-card tilt-card glow-on-hover">
+              <div class="project-img-wrapper">
+                <img src="images/project_dashboard.png" alt="Road Accident Analytics" class="project-img">
+                <div class="project-overlay">
+                  <button class="project-zoom-btn" data-bs-toggle="modal" data-bs-target="#projectModal" aria-label="Quick View Project Detail">
+                    <i class="fas fa-search-plus"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="project-body">
+                <div class="project-tags">
+                  <span class="badge-tag">Tableau</span>
+                  <span class="badge-tag">Excel</span>
+                  <span class="badge-tag">Analytics</span>
+                </div>
+                <h3 class="project-title">Road Accident Data Visualization</h3>
+                <p class="project-desc">Designed interactive Tableau dashboards analyzing geographical accident trends, casualty stats, and weather causality parameters.</p>
+                <ul class="project-features d-none">
+                  <li>Designed interactive Tableau dashboards to analyze accident trends, causes, weather conditions, and road safety insights.</li>
+                  <li>Created KPI cards, charts, filters, and visual reports for effective analytical decision-making.</li>
+                </ul>
+                <div class="project-links">
+                  <a href="https://github.com/Monika-Ranjithkumar" target="_blank" rel="noopener noreferrer" class="btn btn-premium btn-premium-secondary project-link-btn" aria-label="GitHub Repository Link">
+                    <i class="fab fa-github"></i> GitHub
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         ACHIEVEMENTS SECTION
+         ========================================== -->
+    <section id="achievements">
+      <div class="container">
+        <div class="section-title-wrapper" data-aos="fade-up">
+          <span class="section-subtitle">Accomplishments</span>
+          <h2 class="section-title">My <span>Achievements</span></h2>
+          <div class="section-title-line"></div>
+        </div>
+
+        <div class="row g-4">
+          
+          <!-- Achievement Card 1 -->
+          <div class="col-md-4" data-aos="fade-up">
+            <div class="glass-card achievement-card tilt-card glow-on-hover">
+              <div class="achievement-icon">
+                <i class="fas fa-trophy"></i>
+              </div>
+              <h3 class="achievement-title">2nd Prize Code Debugging</h3>
+              <p class="achievement-desc">Secured Second Prize in the Code Debugging Competition at the National Level Symposium conducted at Nandha Engineering College.</p>
+            </div>
+          </div>
+
+          <!-- Achievement Card 2 -->
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="glass-card achievement-card tilt-card glow-on-hover">
+              <div class="achievement-icon">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <h3 class="achievement-title">Diploma in J2EE Programming</h3>
+              <p class="achievement-desc">Earned a professional Diploma in J2EE Programming from CSC, covering Servlets, JSP, JDBC, and Enterprise development models.</p>
+            </div>
+          </div>
+
+          <!-- Achievement Card 3 -->
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="glass-card achievement-card tilt-card glow-on-hover">
+              <div class="achievement-icon">
+                <i class="fas fa-certificate"></i>
+              </div>
+              <h3 class="achievement-title">Senior Grade Typewriting</h3>
+              <p class="achievement-desc">Obtained Senior Grade Typewriting Certification in English, demonstrating accurate typing formatting and speed threshold validations.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         EDUCATION SECTION
+         ========================================== -->
+    <section id="education">
+      <div class="container">
+        <div class="section-title-wrapper" data-aos="fade-up">
+          <span class="section-subtitle">Academic Path</span>
+          <h2 class="section-title">My <span>Education</span></h2>
+          <div class="section-title-line"></div>
+        </div>
+
+        <div class="edu-timeline">
+          
+          <!-- B.Tech AI & DS -->
+          <div class="edu-item" data-aos="fade-up">
+            <div class="edu-node"></div>
+            <div class="glass-card edu-card glow-on-hover tilt-card">
+              <span class="edu-year">2023 - Present</span>
+              <h3 class="edu-degree">B.Tech in Artificial Intelligence & Data Science</h3>
+              <p class="edu-inst">Nandha Engineering College</p>
+              <p class="edu-grade"><strong>CGPA:</strong> 8.7 / 10.0</p>
+            </div>
+          </div>
+
+          <!-- HSC -->
+          <div class="edu-item" data-aos="fade-up">
+            <div class="edu-node"></div>
+            <div class="glass-card edu-card glow-on-hover tilt-card">
+              <span class="edu-year">2022 - 2023</span>
+              <h3 class="edu-degree">Higher Secondary Certificate (HSC)</h3>
+              <p class="edu-inst">Government Girls Hr. Sec. School</p>
+              <p class="edu-grade"><strong>Percentage:</strong> 78.67%</p>
+            </div>
+          </div>
+
+          <!-- SSLC -->
+          <div class="edu-item" data-aos="fade-up">
+            <div class="edu-node"></div>
+            <div class="glass-card edu-card glow-on-hover tilt-card">
+              <span class="edu-year">2020 - 2021</span>
+              <h3 class="edu-degree">Secondary School Leaving Certificate (SSLC)</h3>
+              <p class="edu-inst">Government Girls Hr. Sec. School</p>
+              <p class="edu-grade"><strong>Percentage:</strong> 80%</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         STATISTICS SECTION
+         ========================================== -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="glass-container p-5" data-aos="zoom-in">
+          <div class="row g-4 text-center">
+            
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="stat-box">
+                <div class="stat-box-icon"><i class="fas fa-graduation-cap"></i></div>
+                <span class="stat-box-number" data-count="8.7">0</span>
+                <span class="stat-box-text">CGPA</span>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="stat-box">
+                <div class="stat-box-icon"><i class="fas fa-folder-open"></i></div>
+                <span class="stat-box-number" data-count="3">0</span>
+                <span class="stat-box-text">Projects</span>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="stat-box">
+                <div class="stat-box-icon"><i class="fas fa-building"></i></div>
+                <span class="stat-box-number" data-count="2">0</span>
+                <span class="stat-box-text">Internships</span>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="stat-box">
+                <div class="stat-box-icon"><i class="fas fa-laptop-code"></i></div>
+                <span class="stat-box-number" data-count="12">0</span>
+                <span class="stat-box-text">Skills</span>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="stat-box">
+                <div class="stat-box-icon"><i class="fas fa-award"></i></div>
+                <span class="stat-box-number" data-count="3">0</span>
+                <span class="stat-box-text">Certificates</span>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="stat-box">
+                <div class="stat-box-icon"><i class="fas fa-terminal"></i></div>
+                <span class="stat-box-number" data-count="450">0</span>
+                <span class="stat-box-text">Coding</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         CONTACT SECTION
+         ========================================== -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-title-wrapper" data-aos="fade-up">
+          <span class="section-subtitle">Get In Touch</span>
+          <h2 class="section-title">Contact <span>Me</span></h2>
+          <div class="section-title-line"></div>
+        </div>
+
+        <div class="row">
+          <!-- Left details card -->
+          <div class="col-lg-5 mb-5 mb-lg-0" data-aos="fade-right">
+            <div class="glass-card contact-info-card shimmer-bg">
+              <h3 class="mb-4 font-weight-bold">Contact Information</h3>
+              <p class="text-secondary mb-4">Feel free to reach out for internship opportunities, project collaborations, or technical questions.</p>
+              
+              <div class="contact-info-item">
+                <div class="contact-info-icon"><i class="fas fa-phone-alt"></i></div>
+                <div class="contact-info-text">
+                  <h5>Phone</h5>
+                  <p><a href="tel:+919342112735">+91 93421 12735</a></p>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
+                <div class="contact-info-text">
+                  <h5>Email</h5>
+                  <p><a href="mailto:monikathangamani2006@gmail.com">monikathangamani2006@gmail.com</a></p>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="contact-info-text">
+                  <h5>Location</h5>
+                  <p>Erode, Tamilnadu, India</p>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-info-icon"><i class="fab fa-linkedin-in"></i></div>
+                <div class="contact-info-text">
+                  <h5>LinkedIn</h5>
+                  <p><a href="https://linkedin.com/in/Monika-Ranjithkumar" target="_blank" rel="noopener noreferrer">linkedin.com/in/Monika-Ranjithkumar</a></p>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-info-icon"><i class="fab fa-github"></i></div>
+                <div class="contact-info-text">
+                  <h5>GitHub</h5>
+                  <p><a href="https://github.com/Monika-Ranjithkumar" target="_blank" rel="noopener noreferrer">github.com/Monika-Ranjithkumar</a></p>
+                </div>
+              </div>
+
+              <!-- LeetCode Activity Grid Mockup -->
+              <div class="leetcode-stats-placeholder mt-4">
+                <span><i class="fas fa-code me-1"></i> LeetCode Profile Activity</span>
+                <div class="leetcode-metrics mt-3">
+                  <div class="d-flex justify-content-between mb-1">
+                    <span class="text-secondary small">Easy</span>
+                    <span class="text-secondary small font-weight-bold">180 / 450</span>
+                  </div>
+                  <div class="progress mb-2" style="height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px;">
+                    <div class="progress-bar bg-success" style="width: 40%; border-radius: 3px;"></div>
+                  </div>
+                  <div class="d-flex justify-content-between mb-1">
+                    <span class="text-secondary small">Medium</span>
+                    <span class="text-secondary small font-weight-bold">220 / 450</span>
+                  </div>
+                  <div class="progress mb-2" style="height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px;">
+                    <div class="progress-bar bg-warning" style="width: 49%; border-radius: 3px;"></div>
+                  </div>
+                  <div class="d-flex justify-content-between mb-1">
+                    <span class="text-secondary small">Hard</span>
+                    <span class="text-secondary small font-weight-bold">50 / 450</span>
+                  </div>
+                  <div class="progress" style="height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px;">
+                    <div class="progress-bar bg-danger" style="width: 11%; border-radius: 3px;"></div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          
+          <!-- Right contact form -->
+          <div class="col-lg-7" data-aos="fade-left">
+            <div class="glass-card shimmer-bg">
+              <h3 class="mb-4 font-weight-bold">Send A Message</h3>
+              
+              <form id="contactForm" novalidate>
+                <div class="form-group">
+                  <label for="formName" class="d-none">Your Name</label>
+                  <input type="text" class="form-control-premium" id="formName" name="from_name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                  <label for="formEmail" class="d-none">Your Email</label>
+                  <input type="email" class="form-control-premium" id="formEmail" name="from_email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                  <label for="formSubject" class="d-none">Subject</label>
+                  <input type="text" class="form-control-premium" id="formSubject" name="subject" placeholder="Subject" required>
+                </div>
+                <div class="form-group">
+                  <label for="formMessage" class="d-none">Message</label>
+                  <textarea class="form-control-premium" id="formMessage" name="message" placeholder="Your Message" required></textarea>
+                </div>
+                
+                <button type="submit" id="formSubmitBtn" class="btn btn-premium btn-premium-primary w-100">
+                  <i class="fas fa-paper-plane me-2"></i>Send Message
+                </button>
+              </form>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating WhatsApp widget -->
+      <a href="https://wa.me/919342112735" target="_blank" rel="noopener noreferrer" class="whatsapp-float float-animation" aria-label="Contact via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </section>
+  </main>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer class="footer-section">
+    <!-- SVG wave border -->
+    <div class="footer-wave">
+      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V0C26.9,8.75,57.05,18.3,88.43,26.85,154.06,44.7,226.24,58.8,321.39,56.44Z" class="shape-fill" fill="var(--bg-primary)"></path>
+      </svg>
+    </div>
+
+    <div class="container text-center">
+      <span class="footer-logo">M</span>
+      
+      <div class="footer-socials">
+        <a href="https://github.com/Monika-Ranjithkumar" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub Profile Link">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://linkedin.com/in/Monika-Ranjithkumar" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn Profile Link">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://leetcode.com/Monika_Ranjithkumar" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LeetCode Profile Link">
+          <i class="fas fa-code"></i>
+        </a>
+        <a href="mailto:monikathangamani2006@gmail.com" class="social-icon" aria-label="Email Address Direct Link">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+
+      <!-- Visitor Counter Placeholder -->
+      <div class="visitor-counter">
+        <i class="fas fa-eye"></i> Profile Views: <strong id="visitorCountVal">1240</strong>
+      </div>
+
+      <div class="footer-copyright">
+        <p>Made with <i class="fas fa-heart"></i> by Monika B R &copy; 2026. All Rights Reserved.</p>
+      </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTopBtn" class="back-to-top-btn" aria-label="Scroll Back to Top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+  </footer>
+
+  <!-- ==========================================
+       MODAL - PROJECT DETAIL VIEW
+       ========================================== -->
+  <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title fs-5" id="projectModalLabel">Project Title</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img src="" id="projectModalImg" alt="Project Mockup Expanded View" class="modal-img">
+          
+          <h4 class="font-weight-bold mb-2">Description</h4>
+          <p id="projectModalDesc" class="text-secondary mb-4">Project detail long description goes here.</p>
+          
+          <h4 class="font-weight-bold mb-2">Key Features</h4>
+          <ul id="projectModalFeatures" class="project-features mb-4">
+            <!-- Dynamically populated from JS -->
+          </ul>
+          
+          <div class="d-flex gap-3">
+            <a href="" id="projectModalGitLink" target="_blank" rel="noopener noreferrer" class="btn btn-premium btn-premium-secondary">
+              <i class="fab fa-github me-1"></i> GitHub
+            </a>
+            <a href="" id="projectModalDemoLink" target="_blank" rel="noopener noreferrer" class="btn btn-premium btn-premium-primary">
+              <i class="fas fa-external-link-alt me-1"></i> Live Demo
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MODAL - EMAIL SUCCESS CHECKMARK
+       ========================================== -->
+  <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center py-4">
+        <div class="modal-body">
+          <!-- Animated success checkmark -->
+          <div class="success-checkmark">
+            <div class="check-icon">
+              <span class="icon-line line-tip"></span>
+              <span class="icon-line line-long"></span>
+              <div class="icon-circle"></div>
+              <div class="icon-fix"></div>
+            </div>
+          </div>
+          <h3 class="font-weight-bold mb-2" style="color: var(--accent);">Message Sent!</h3>
+          <p class="text-secondary mb-4">Thank you for writing. I will get back to you shortly.</p>
+          <button type="button" class="btn btn-premium btn-premium-primary px-5" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       CORE LIBS SCRIPTS
+       ========================================== -->
+  <!-- Bootstrap 5 Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Three.js (WebGL) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- GSAP Animation Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <!-- AOS Scroll animations -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <!-- Typed.js -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <!-- Vanilla Tilt (Hover Card tilt) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <!-- EmailJS Web SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  
+  <script>
+    // Initialize EmailJS public key - user can replace placeholder
+    (function(){
+      if (window.emailjs) {
+        emailjs.init("YOUR_PUBLIC_KEY");
+      }
+    })();
+
+    // Interactive custom function for dynamic skills filtering (avoid external framework states)
+    function filterSkills(category) {
+      const tabs = document.querySelectorAll(".skills-tab-btn");
+      const cards = document.querySelectorAll(".skill-card");
+      
+      tabs.forEach(tab => {
+        tab.classList.remove("active");
+        if (tab.getAttribute("onclick").includes(category)) {
+          tab.classList.add("active");
+        }
+      });
+      
+      cards.forEach(card => {
+        const cat = card.getAttribute("data-skill-cat");
+        if (category === "all" || cat === category) {
+          card.parentNode.style.display = "block";
+          card.style.opacity = "1";
+          card.style.transform = "scale(1)";
+        } else {
+          card.parentNode.style.display = "none";
+        }
+      });
+    }
+  </script>
+
+  <!-- Custom Scripts -->
+  <script src="js/particles.js"></script>
+  <script src="js/email.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

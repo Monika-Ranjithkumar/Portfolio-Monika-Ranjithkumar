@@ -1,0 +1,222 @@
+/* ==========================================================================
+   Monika B R - Premium Portfolio - Responsive Styles
+   ========================================================================== */
+
+/* Breakpoint for Large Screen Devices (Desktops) */
+@media (max-width: 1200px) {
+  .hero-name {
+    font-size: 3.8rem;
+  }
+}
+
+/* Breakpoint for Tablet Screen Devices (Laptops & iPads) */
+@media (max-width: 991px) {
+  section {
+    padding: 80px 0;
+  }
+  
+  .section-title {
+    font-size: 2.2rem;
+  }
+  
+  .hero-name {
+    font-size: 3.2rem;
+  }
+  
+  .hero-typed {
+    font-size: 1.8rem;
+    height: 50px;
+  }
+  
+  .about-image-container {
+    width: 280px;
+    height: 280px;
+    margin-bottom: 40px;
+  }
+  
+  .timeline-container::before {
+    left: 20px;
+  }
+  
+  .timeline-row {
+    flex-direction: column !important;
+    padding-left: 45px;
+    margin-bottom: 40px;
+  }
+  
+  .timeline-content-wrapper {
+    width: 100%;
+  }
+  
+  .timeline-node {
+    left: 20px;
+    top: 5px;
+    transform: translateX(-50%);
+  }
+  
+  /* Mobile Menu drawer sliding styles */
+  .navbar-collapse {
+    position: fixed;
+    top: 0;
+    right: -280px;
+    width: 280px;
+    height: 100vh;
+    background: var(--bg-primary);
+    border-left: 1px solid var(--glass-border);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.4);
+    padding: 80px 30px 40px;
+    transition: right var(--transition-normal);
+    display: flex;
+    flex-direction: column;
+    z-index: 999;
+  }
+  
+  .navbar-collapse.show {
+    right: 0;
+  }
+  
+  .navbar-nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .nav-link::after {
+    left: 0;
+  }
+  
+  .nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+  }
+  
+  .theme-toggle-btn {
+    margin-left: 0;
+    margin-top: 20px;
+    align-self: flex-start;
+  }
+  
+  .sound-toggle-btn {
+    margin-left: 0;
+    margin-top: 15px;
+    align-self: flex-start;
+  }
+  
+  /* Hamburger Icon Animation */
+  .navbar-toggler {
+    border: none;
+    padding: 0;
+    z-index: 1000;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  .navbar-toggler span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-primary);
+    position: absolute;
+    left: 0;
+    transition: transform var(--transition-normal), opacity var(--transition-normal), top var(--transition-normal), background-color var(--transition-normal);
+  }
+  
+  .navbar-toggler span:nth-child(1) {
+    top: 6px;
+  }
+  
+  .navbar-toggler span:nth-child(2) {
+    top: 14px;
+  }
+  
+  .navbar-toggler span:nth-child(3) {
+    top: 22px;
+  }
+  
+  .navbar-toggler:not(.collapsed) span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 14px;
+  }
+  
+  .navbar-toggler:not(.collapsed) span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .navbar-toggler:not(.collapsed) span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 14px;
+  }
+}
+
+/* Breakpoint for Mobile Screen Devices */
+@media (max-width: 768px) {
+  section {
+    padding: 60px 0;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .hero-greeting {
+    font-size: 1rem;
+  }
+  
+  .hero-name {
+    font-size: 2.5rem;
+  }
+  
+  .hero-typed {
+    font-size: 1.4rem;
+    height: 40px;
+  }
+  
+  .hero-buttons {
+    gap: 12px;
+  }
+  
+  .btn-premium {
+    padding: 10px 22px;
+    font-size: 0.85rem;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .about-image-container {
+    width: 220px;
+    height: 220px;
+  }
+  
+  .whatsapp-float {
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+  
+  .back-to-top-btn {
+    bottom: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+  
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .hero-name {
+    font-size: 2.1rem;
+  }
+  
+  .navbar-brand {
+    font-size: 1.8rem;
+  }
+  
+  .stat-number {
+    font-size: 1.8rem;
+  }
+}
