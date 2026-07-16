@@ -32,21 +32,42 @@ document.addEventListener("DOMContentLoaded", function() {
       formSubmitBtn.disabled = true;
       formSubmitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
 
-      // Check if EmailJS SDK is initialized
-      if (window.emailjs) {
-        // Send email via emailjs
-        // Replace with your service_id, template_id, and make sure form fields match your template variables
-        // Default Template variables: from_name, from_email, subject, message
-        emailjs.sendForm('service_default', 'template_default', this)
-          .then(function() {
+      // Check if Web3Forms Access Key is provided in the form
+      const accessKeyInput = contactForm.querySelector('input[name="access_key"]');
+      const accessKey = accessKeyInput ? accessKeyInput.value.trim() : "";
+
+      if (accessKey && accessKey !== "YOUR_ACCESS_KEY_HERE" && accessKey !== "") {
+        // Prepare data for Web3Forms API
+        const formData = new FormData(contactForm);
+        
+        // Convert FormData to JSON (Web3Forms supports JSON which returns cleaner responses)
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
+        fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: json
+        })
+        .then(async (response) => {
+          let jsonResponse = await response.json();
+          if (response.status === 200) {
             handleSuccess();
-          }, function(error) {
-            console.error('EmailJS Error:', error);
-            handleError();
-          });
+          } else {
+            console.error("Web3Forms Error Response:", jsonResponse);
+            handleError(jsonResponse.message || "Failed to send message.");
+          }
+        })
+        .catch(error => {
+          console.error("Network error during submission:", error);
+          handleError("Network error. Please check your internet connection.");
+        });
       } else {
-        // Simulate successful dispatch for local demonstration if EmailJS API keys are missing/not set up
-        console.warn("EmailJS is not initialized or script not loaded. Simulating email dispatch.");
+        // Simulate successful dispatch for local demonstration if Web3Forms API keys are missing/not set up
+        console.warn("Web3Forms Access Key is missing. Simulating email dispatch.");
         setTimeout(() => {
           handleSuccess();
         }, 1500);
@@ -65,10 +86,10 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       }
       
-      function handleError() {
+      function handleError(errorMsg) {
         formSubmitBtn.disabled = false;
         formSubmitBtn.innerHTML = originalBtnText;
-        alert("Failed to send message. Please try again or reach out directly at monikathangamani2006@gmail.com");
+        alert(errorMsg || "Failed to send message. Please try again or reach out directly at monikathangamani2006@gmail.com");
       }
     });
   }

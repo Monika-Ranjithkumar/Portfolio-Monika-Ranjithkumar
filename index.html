@@ -788,6 +788,9 @@
               <h3 class="mb-4 font-weight-bold">Send A Message</h3>
               
               <form id="contactForm" novalidate>
+                <!-- Web3Forms Access Key - Get yours at https://web3forms.com -->
+                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+
                 <div class="form-group">
                   <label for="formName" class="d-none">Your Name</label>
                   <input type="text" class="form-control-premium" id="formName" name="from_name" placeholder="Your Name" required>
@@ -939,17 +942,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
   <!-- Particles.js -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <!-- EmailJS Web SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-  
   <script>
-    // Initialize EmailJS public key - user can replace placeholder
-    (function(){
-      if (window.emailjs) {
-        emailjs.init("YOUR_PUBLIC_KEY");
-      }
-    })();
-
     // Interactive custom function for dynamic skills filtering (avoid external framework states)
     function filterSkills(category) {
       const tabs = document.querySelectorAll(".skills-tab-btn");
