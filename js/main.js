@@ -375,19 +375,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ==========================================
-  // 13. VISITOR COUNTER MOCK LOADER
-  // ==========================================
-  const visitorCountVal = document.getElementById("visitorCountVal");
-  if (visitorCountVal) {
-    // Generate a random visitor number or fetch from local session storage
-    let currentVisits = sessionStorage.getItem("visitor_count");
-    if (!currentVisits) {
-      currentVisits = Math.floor(Math.random() * 200) + 1240;
-      sessionStorage.setItem("visitor_count", currentVisits);
-    }
-    visitorCountVal.textContent = currentVisits;
-  }
+
 
   // ==========================================
   // 14. TERMINAL TYPING ANIMATION (HERO SECTION)

@@ -1497,23 +1497,7 @@ textarea.form-control-premium {
   margin-top: 10px;
 }
 
-.leetcode-stats-placeholder {
-  width: 100%;
-  border-radius: 12px;
-  border: 1px dashed var(--glass-border);
-  background: rgba(255, 255, 255, 0.01);
-  color: var(--text-secondary);
-  font-size: 0.85rem;
-  padding: 18px 24px;
-}
 
-.leetcode-stats-placeholder > span {
-  display: flex;
-  align-items: center;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 12px;
-}
 
 .skills-category-badge {
   display: inline-flex;
