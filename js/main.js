@@ -310,15 +310,35 @@ document.addEventListener("DOMContentLoaded", function () {
         const desc = card.querySelector(".project-desc").textContent;
         const img = card.querySelector(".project-img").src;
         const features = card.querySelector(".project-features").innerHTML;
-        const gitLink = card.querySelector(".project-links a:nth-child(1)").href;
-        const demoLink = card.querySelector(".project-links a:nth-child(2)").href;
+        
+        const gitLinkEl = card.querySelector(".project-links a:nth-child(1)");
+        const demoLinkEl = card.querySelector(".project-links a:nth-child(2)");
+        
+        const gitLink = gitLinkEl ? gitLinkEl.href : "";
+        const demoLink = demoLinkEl ? demoLinkEl.href : "";
         
         if (modalImg) modalImg.src = img;
         if (modalTitle) modalTitle.textContent = title;
         if (modalDesc) modalDesc.textContent = desc;
         if (modalFeatures) modalFeatures.innerHTML = features;
-        if (modalGit) modalGit.href = gitLink;
-        if (modalDemo) modalDemo.href = demoLink;
+        
+        if (modalGit) {
+          if (gitLink) {
+            modalGit.href = gitLink;
+            modalGit.style.display = "inline-block";
+          } else {
+            modalGit.style.display = "none";
+          }
+        }
+        
+        if (modalDemo) {
+          if (demoLink) {
+            modalDemo.href = demoLink;
+            modalDemo.style.display = "inline-block";
+          } else {
+            modalDemo.style.display = "none";
+          }
+        }
       }
     });
   });
