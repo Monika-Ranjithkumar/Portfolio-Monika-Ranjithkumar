@@ -388,5 +388,133 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     visitorCountVal.textContent = currentVisits;
   }
-  
+
+  // ==========================================
+  // 14. TERMINAL TYPING ANIMATION (HERO SECTION)
+  // ==========================================
+  const terminalBody = document.querySelector(".terminal-body");
+  if (terminalBody) {
+    const codeLines = [
+      {
+        plain: "// Professional Profile",
+        html: '<span class="code-comment">// Professional Profile</span>'
+      },
+      {
+        plain: "public class MonikaBR {",
+        html: '<span class="code-keyword">public class</span> <span class="code-class">MonikaBR</span> {'
+      },
+      {
+        plain: '    String role = "Java & Full-Stack Developer";',
+        html: '    <span class="code-type">String</span> role = <span class="code-string">"Java & Full-Stack Developer"</span>;'
+      },
+      {
+        plain: '    String focus = "AI & Data Science";',
+        html: '    <span class="code-type">String</span> focus = <span class="code-string">"AI & Data Science"</span>;'
+      },
+      {
+        plain: "",
+        html: ""
+      },
+      {
+        plain: "    public void code() {",
+        html: '    <span class="code-keyword">public void</span> <span class="code-method">code</span>() {'
+      },
+      {
+        plain: "        while (learning) {",
+        html: '        <span class="code-keyword">while</span> (learning) {'
+      },
+      {
+        plain: "            self.buildProjects();",
+        html: '            self.<span class="code-method">buildProjects</span>();'
+      },
+      {
+        plain: "            self.solveProblems();",
+        html: '            self.<span class="code-method">solveProblems</span>();'
+      },
+      {
+        plain: "        }",
+        html: '        }'
+      },
+      {
+        plain: "    }",
+        html: '    }'
+      },
+      {
+        plain: "}",
+        html: '}'
+      }
+    ];
+    
+    let currentLineIndex = 0;
+    let currentCharIndex = 0;
+    
+    function typeNextLine() {
+      if (currentLineIndex >= codeLines.length) {
+        // Wait 5 seconds and restart
+        setTimeout(() => {
+          terminalBody.innerHTML = "";
+          currentLineIndex = 0;
+          currentCharIndex = 0;
+          typeNextLine();
+        }, 5000);
+        return;
+      }
+      
+      const lineData = codeLines[currentLineIndex];
+      
+      // Create new line element
+      const lineDiv = document.createElement("div");
+      lineDiv.className = "code-line";
+      
+      const lineNum = document.createElement("span");
+      lineNum.className = "line-number";
+      lineNum.textContent = currentLineIndex + 1;
+      
+      const codeContent = document.createElement("code");
+      codeContent.className = "code-content";
+      
+      lineDiv.appendChild(lineNum);
+      lineDiv.appendChild(codeContent);
+      terminalBody.appendChild(lineDiv);
+      
+      // Scroll terminal to bottom
+      terminalBody.scrollTop = terminalBody.scrollHeight;
+      
+      if (lineData.plain === "") {
+        // Empty line, proceed immediately
+        currentLineIndex++;
+        setTimeout(typeNextLine, 200);
+        return;
+      }
+      
+      // Type character by character
+      function typeChar() {
+        if (currentCharIndex < lineData.plain.length) {
+          // Append next character
+          codeContent.textContent = lineData.plain.substring(0, currentCharIndex + 1);
+          
+          // Add cursor
+          const cursor = document.createElement("span");
+          cursor.className = "terminal-cursor";
+          codeContent.appendChild(cursor);
+          
+          currentCharIndex++;
+          // Random typing speed (30ms - 80ms)
+          const typingSpeed = Math.random() * 50 + 30;
+          setTimeout(typeChar, typingSpeed);
+        } else {
+          // Line finished typing! Remove cursor, replace with highlighted HTML
+          codeContent.innerHTML = lineData.html;
+          currentCharIndex = 0;
+          currentLineIndex++;
+          // Short pause between lines (300ms - 600ms)
+          setTimeout(typeNextLine, Math.random() * 300 + 300);
+        }
+      }
+      
+      typeChar();
+    }
+    
+    typeNextLine();
+  }
 });

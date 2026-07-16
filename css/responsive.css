@@ -220,3 +220,30 @@
     font-size: 1.8rem;
   }
 }
+
+/* Coding Terminal Responsive Settings */
+@media (max-width: 1200px) {
+  .badge-java { right: -15px; }
+  .badge-js { left: -15px; }
+  .badge-ai { right: -20px; }
+}
+
+@media (max-width: 991px) {
+  .terminal-container-wrapper {
+    margin-top: 40px;
+    padding: 0 10px;
+  }
+  .badge-java { right: 0; }
+  .badge-js { left: 0; }
+  .badge-ai { right: -5px; }
+}
+
+@media (max-width: 576px) {
+  .floating-badge {
+    display: none !important; /* Hide badges on small viewports to prevent horizontal overflow */
+  }
+  .terminal-body {
+    height: 240px; /* Make terminal body slightly shorter on small mobile viewports */
+    font-size: 0.8rem;
+  }
+}
